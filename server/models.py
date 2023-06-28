@@ -74,7 +74,7 @@ class Product(db.Model, SerializerMixin):
     description = db.Column(db.String, nullable=False)
     quantity = db.Column(db.Integer, nullable=False)
     added_on = db.Column(db.DateTime, server_default = db.func.now())
-    photos = db.Column(db.img_url)
+    img_url = db.Column(db.String)
     subject = db.Column(db.String)
 
     artist_id = db.Column(db.Integer, db.ForeignKey('artists.id'))
@@ -127,5 +127,4 @@ class Product(db.Model, SerializerMixin):
     
     def __repr__(self):
         return f"Product # {self.id}: {self.title} {self.price} by {self.artist.name}."
-    
     
