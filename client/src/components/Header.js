@@ -1,7 +1,7 @@
 function Header(){
     return (
         <header>
-            <h1 id='logo'> new studio  <br />
+            <h1 id='logo'>new studio<br/>
             <span className="logo" role="img">
             🌱
             </span>

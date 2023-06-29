@@ -125,6 +125,21 @@ class Product(db.Model, SerializerMixin):
             raise ValueError(f'{key} must be 1 or a higher amount...')
         return value    
     
+
+    # QUEENA 
+    # class Cart_Item(db.Model, SerializerMixin):
+    #     __tablename__ = 'cart_items'
+
+    #     id = db.Column( db.Integer, primary_key= True )
+
+    #     product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
+
+    #     serialize_rules = ('-product.cart_items', )
+
+    
+
+
+
     def __repr__(self):
         return f"Product # {self.id}: {self.title} {self.price} by {self.artist.name}."
     
