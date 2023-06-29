@@ -19,7 +19,7 @@ const [patchFormData, setPatchFormData] = useState({})
 const placeholder = '[ 1 ] [ 2 ] [ 3 ] [ 4 ]'
 
 useEffect(() => {
-    fetch('/prducts')
+    fetch('/products')
     .then(rsp => rsp.json())
     .then(productData => setProducts(productData))
 }, [])
@@ -97,8 +97,9 @@ return (
       <Header />
       <Switch>
         <Route exact path="/">
-          <h1>{placeholder}</h1>
+          <h1></h1>
           <ProductList products={products} deleteProduct={deleteProduct}/>
+          
         </Route>
         <Route path="/add_product">
           <NewProductForm addProduct={addProduct} updatePostFormData={updatePostFormData}/>

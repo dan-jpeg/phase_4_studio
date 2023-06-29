@@ -16,7 +16,7 @@ function UpdateProductForm({updateProduct, setIdToUpdate, updatePatchFormData, p
                     setIdToUpdate(event.target.value)
                 }} name="id">
                 {products.map(product => {
-                    return <option key={product.id} value={product.id}>{`${product.id}: ${product.name}`}</option>
+                    return <option key={product.id} value={product.id}>{`${product.id}: ${product.title}`}</option>
                 })}
                 </select>
                 <input onChange={updatePatchFormData} type="text" name="title" placeholder="product name"/>
