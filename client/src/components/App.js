@@ -22,7 +22,9 @@ const placeholder = '[ 1 ] [ 2 ] [ 3 ] [ 4 ]'
 useEffect(() => {
     fetch('/products')
     .then(rsp => rsp.json())
-    .then(productData => setProducts(productData))
+    .then(productData => setProducts(productData),
+    setDisplayedProduct[products[2]],
+    console.log(products[2]))
 }, [])
 
 
@@ -38,6 +40,7 @@ useEffect(() => {
 
 function handleClickProduct(product) {
   setDisplayedProduct(product);
+  console.log(displayedProduct)
 }
 
 function addProduct(event){
@@ -109,7 +112,7 @@ return (
         <Route exact path="/">
           <h1></h1>
           <ProductList products={products} handleClickProduct={handleClickProduct} deleteProduct={deleteProduct}/>
-          <ProductDisplay displayedProduct={displayedProduct} />
+          <ProductDisplay handleClickProduct={handleClickProduct} displayedProduct={displayedProduct} />
         </Route>
         <Route path="/add_product">
           <NewProductForm addProduct={addProduct} updatePostFormData={updatePostFormData}/>

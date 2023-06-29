@@ -1,9 +1,9 @@
 import Product from './Product'
 
-function ProductList({products, deleteProduct}){
+function ProductList({products, handleClickProduct, deleteProduct}){
 
     const productComponenets = products.map(product => {
-        return <Product key={product.id} product={product} deleteProduct={deleteProduct}/>
+        return <Product key={product.id} deleteProduct={deleteProduct} product={product} handleClickProduct={handleClickProduct} />
     })
 
     return (

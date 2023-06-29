@@ -18,7 +18,7 @@ function NewProductForm({addProduct, updatePostFormData}){
                 <input onChange={updatePostFormData} type="text" name="width" placeholder="width" required/>
                 <input onChange={updatePostFormData} type="text" name="height" placeholder="height"/>
                 <input onChange={updatePostFormData} type="text" name="description" placeholder="description" required/>
-                <input onChange={updatePostFormData} type="text" name="quantity" placeholder="height"/>
+                <input onChange={updatePostFormData} type="text" name="quantity" placeholder="quantity"/>
                 <input onChange={updatePostFormData} type="text" name="subject" placeholder='subject' />
                 <input type="submit" value="add product"/>
             </form>}
