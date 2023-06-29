@@ -29,8 +29,7 @@ useEffect(() => {
 
 useEffect(() => {
     if(products.length > 0 && products[0].id){
-        setIdToUpdate(products[0].id),
-        setDisplayedProduct(products[2])
+        setIdToUpdate(products[0].id)
     }
 }, [products])
 
