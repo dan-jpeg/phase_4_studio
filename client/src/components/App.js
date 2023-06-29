@@ -7,6 +7,7 @@ import Header from './Header'
 import ProductList from './ProductList'
 import NewProductForm from './NewProductForm'
 import UpdateProductForm from './UpdateProductForm'
+import ProductDisplay from './ProductDisplay';
 
 function App() {
 
@@ -14,7 +15,7 @@ const [products, setProducts] = useState ([])
 const [postFormData, setPostFormData] = useState({})
 const [idToUpdate, setIdToUpdate] = useState(0)
 const [patchFormData, setPatchFormData] = useState({})
-
+const [displayedProduct, setDisplayedProduct] = useState({});
 
 const placeholder = '[ 1 ] [ 2 ] [ 3 ] [ 4 ]'
 
@@ -24,13 +25,21 @@ useEffect(() => {
     .then(productData => setProducts(productData))
 }, [])
 
+
+
 useEffect(() => {
     if(products.length > 0 && products[0].id){
-        setIdToUpdate(products[0].id)
+        setIdToUpdate(products[0].id),
+        setDisplayedProduct(products[2])
     }
 }, [products])
 
 
+
+
+function handleClickProduct(product) {
+  setDisplayedProduct(product);
+}
 
 function addProduct(event){
     event.preventDefault()
@@ -72,6 +81,8 @@ function updateProduct(e){
     })
 }
 
+
+
 function deleteProduct(id){
     fetch(`/hotels/${id}`, {
         method: "DELETE"
@@ -98,8 +109,8 @@ return (
       <Switch>
         <Route exact path="/">
           <h1></h1>
-          <ProductList products={products} deleteProduct={deleteProduct}/>
-          
+          <ProductList products={products} handleClickProduct={handleClickProduct} deleteProduct={deleteProduct}/>
+          <ProductDisplay displayedProduct={displayedProduct} />
         </Route>
         <Route path="/add_product">
           <NewProductForm addProduct={addProduct} updatePostFormData={updatePostFormData}/>
