@@ -10,12 +10,14 @@ import UpdateProductForm from './UpdateProductForm'
 import ProductDisplay from './ProductDisplay';
 
 function App() {
-
 const [products, setProducts] = useState ([])
 const [postFormData, setPostFormData] = useState({})
 const [idToUpdate, setIdToUpdate] = useState(0)
 const [patchFormData, setPatchFormData] = useState({})
-const [displayedProduct, setDisplayedProduct] = useState({});
+const [displayedProduct, setDisplayedProduct] = useState({})
+const [adminMode, setAdminMode] = useState(false)
+const [username, setUsername] = useState('')
+
 
 const placeholder = '[ 1 ] [ 2 ] [ 3 ] [ 4 ]'
 
@@ -35,7 +37,28 @@ useEffect(() => {
     }
 }, [products])
 
+const toggleAdminMode = () => {
+    
+  setAdminMode(!adminMode) 
+}
 
+let enteredPassword = ''
+let enteredUsername = ''
+
+function handleLogin(event) {
+  event.preventDefault();
+ 
+  enteredUsername = event.target.username.value;
+  enteredPassword = event.target.password.value;
+  
+  setUsername(enteredUsername)
+  if (enteredUsername === "admin" && enteredPassword === "password") {
+    setAdminMode(true);
+  }
+  
+  // Clear the form inputs
+  event.target.reset();
+}
 
 
 function handleClickProduct(product) {
@@ -106,12 +129,12 @@ function updatePostFormData(event){
 
 return (
     <div className="app">
-      <NavBar/>
+      <NavBar adminMode={adminMode} handleLogin={handleLogin} enteredUsername={username}/>
       <Header />
       <Switch>
         <Route exact path="/">
           <h1></h1>
-          <ProductList products={products} handleClickProduct={handleClickProduct} deleteProduct={deleteProduct}/>
+          <ProductList products={products} handleClickProduct={handleClickProduct} deleteProduct={deleteProduct} adminMode={adminMode}/>
           <ProductDisplay handleClickProduct={handleClickProduct} displayedProduct={displayedProduct} />
         </Route>
         <Route path="/add_product">
@@ -121,6 +144,7 @@ return (
           <UpdateProductForm updateProduct={updateProduct} setIdToUpdate={setIdToUpdate} updatePatchFormData={updatePatchFormData} products={products}/>
         </Route>
       </Switch>
+      
     </div>
   );
 }
