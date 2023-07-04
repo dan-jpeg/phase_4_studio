@@ -134,8 +134,10 @@ return (
       <Switch>
         <Route exact path="/">
           <h1></h1>
+          <div className='parent'>
           <ProductList products={products} handleClickProduct={handleClickProduct} deleteProduct={deleteProduct} adminMode={adminMode}/>
           <ProductDisplay handleClickProduct={handleClickProduct} displayedProduct={displayedProduct} />
+          </div>
         </Route>
         <Route path="/add_product">
           <NewProductForm addProduct={addProduct} updatePostFormData={updatePostFormData}/>

@@ -15,7 +15,7 @@ function NavBar({ adminMode, handleLogin, enteredUsername }){
             <div>
             <div className='loginDiv'>
       {!adminMode ? (
-      <form onSubmit={handleLogin}>
+      <form classname="login-form"onSubmit={handleLogin}>
         <input type="text" name="username" placeholder="Username" required />
         <input type="password" name="password" placeholder="Password" required />
         <button className="submit-button" type="submit">Login</button>

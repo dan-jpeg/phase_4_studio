@@ -52,7 +52,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  padding-bottom: 2vh;
 }
 
 nav a {
@@ -67,12 +67,16 @@ nav a {
   cursor: pointer;
 }
 
-header h3 {
+
+header {
+  padding-bottom: 3vh;
+}
+header h1 {
   font-size: 1.5em;
   font-weight: 900;
-  text-align: center;
+  text-align: left;
   padding: 0.5rem 0;
-  padding-bottom: 5rem;
+  padding-bottom: 2vh;
 }
 
 .logo {
@@ -166,39 +170,39 @@ input:focus {
   }
 }
 
-.main { 
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 66px;
-  grid-row-gap:0 px; 
-  width: 100vw;
-  height: 89vh;
-  justify-content: center;
-  align-items: center;
-  color: black;
+.parent { 
+  display: grid; 
+  grid-template-columns: .66fr repeat(2, .88fr) 1.66fr; 
+  grid-template-rows: repeat(2, 1fr) 1.6fr repeat(2, 1fr); 
+  grid-column-gap: 30px;
+  grid-row-gap: 0px; 
+  width: 80vw;
+  height: 60vh;
+  padding-right: 10vw;
   }
 
-
-  .logo { grid-area: 1 / 1 / 2 / 2; }
-  .div2 { grid-area: 3 / 2 / 6 / 6; } 
-  .div3 { grid-area: 4 / 2 / 5 / 6; } 
-  .div4 { 
+  .div1 { 
+    grid-area: 1 / 1 / 6 / 2;
+    font-size: calc(4px + .5rem)}
     
-    grid-area: 1 / 2 / 4 / 6; 
-    align-content: center;
-    font-size: calc(5px + 2vmin);
+    
+  .div2 { grid-area: 3 / 2 / 4 / 3; } 
+  .div3 { grid-area: 2 / 3 / 5 / 4; } 
+  .div4 { 
+    grid-area: 2 / 4 / 5 / 5; 
+    
+  } 
+
+  .div4 img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
   }
-  
-
-  .div5 { grid-area: 5 / 2 / 6 / 4; 
-    font-size: calc(20px+ 4vmin);} 
-
-  .div4 h1 {
-    font-size: calc(15px + 2.5vmin)
-  }
-
 
 .submit-button {
   display: none
 } 
+
+ul {
+  font-size: calc(2px + .22rem);
+}
